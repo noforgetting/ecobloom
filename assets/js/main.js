@@ -2,6 +2,16 @@ const body = document.body;
 const menuButton = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+const homeHeader = document.querySelector(".home-page.home-redesign .site-header");
+
+if (homeHeader) {
+  const updateHomeHeader = () => {
+    homeHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+
+  updateHomeHeader();
+  window.addEventListener("scroll", updateHomeHeader, { passive: true });
+}
 
 if (menuButton && navMenu) {
   menuButton.addEventListener("click", () => {

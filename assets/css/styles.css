@@ -1408,6 +1408,9 @@
   .home-page .hamburger { color: var(--cream); }
   .home-page .nav-menu { background: var(--forest-nav); border-color: rgba(255, 250, 244, 0.18); }
   .home-page .nav-menu > li:not(.dropdown), .home-page .dropdown { border-color: rgba(255, 250, 244, 0.18); }
+  .home-page .dropdown-menu a { color: var(--cream); }
+  .home-page .dropdown-menu a:hover,
+  .home-page .dropdown-menu a:focus { color: var(--forest); }
 }
 
 @media (max-width: 640px) {
@@ -4384,8 +4387,57 @@ p {
 .news-sidebar-all:hover,
 .news-sidebar-all:focus { color: var(--leaf); }
 
+.home-page.home-redesign .home-contact-cta {
+  padding-block: 96px;
+  color: var(--forest);
+  background: var(--sage);
+}
+
+.home-page.home-redesign .home-contact-cta .split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.home-page.home-redesign .home-contact-cta .split-copy h2 {
+  max-width: none;
+  margin: 0;
+  color: var(--forest);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(2.7rem, 5.2vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -.06em;
+}
+
+.home-page.home-redesign .home-contact-cta .lead {
+  color: var(--muted);
+}
+
+.home-page.home-redesign .home-contact-cta .split-image {
+  border-radius: 0;
+  box-shadow: 14px 14px 0 rgba(94, 128, 77, .22);
+}
+
+.home-page.home-redesign .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  border-bottom-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+  transition: background 180ms var(--ease), border-color 180ms var(--ease), backdrop-filter 180ms var(--ease);
+}
+
+.home-page.home-redesign .site-header.is-scrolled {
+  border-bottom-color: rgba(255, 250, 244, 0.18);
+  background: rgba(24, 75, 54, 0.84);
+  backdrop-filter: blur(10px);
+}
+
 @media (max-width: 960px) {
   .news-article-page .news-article-layout { grid-template-columns: 1fr; }
+  .home-page.home-redesign .home-contact-cta .split { grid-template-columns: 1fr; }
   .news-article-sidebar {
     position: static;
     max-width: 720px;
