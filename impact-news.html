@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="news-article-page">
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation"><a class="brand" href="index.html"><img class="brand-mark"
           src="ecobloom.png">Eco Bloom</a><button class="hamburger" type="button"
@@ -46,15 +46,37 @@
   </header>
   <main>
     <article class="section bg-white">
-      <div class="container initiative-article reveal">
-        <div class="initiative-article-image"><img
-            src="https://www.bmcanada.ca/wp-content/uploads/2014/05/placeholder-green.png"></div>
-        <p class="eyebrow">Header</p>
-        <h1>Title</h1>
-        <p class="lead">Placeholder Description</p>
-        <p>Placeholder Description</p>
-        <p>Placeholder Description</p>
-        <p><a class="button" href="berita.html">Back to News</a></p>
+      <div class="container news-article-layout">
+        <div class="initiative-article reveal">
+          <div class="initiative-article-image"><img
+              src="https://www.bmcanada.ca/wp-content/uploads/2014/05/placeholder-green.png"></div>
+          <p class="eyebrow">Header</p>
+          <h1>Title</h1>
+          <p class="lead">Placeholder Description</p>
+          <p>Placeholder Description</p>
+          <p>Placeholder Description</p>
+          <p><a class="button" href="berita.html">Back to News</a></p>
+        </div>
+        <aside class="news-article-sidebar" aria-labelledby="more-news-title">
+          <div class="news-article-sidebar-heading">
+            <h2 id="more-news-title">Berita Lainnya</h2>
+          </div>
+          <div class="news-sidebar-list">
+            <a class="news-sidebar-item" href="impact-news.html">
+              <img src="assets/images/No-Image-Placeholder.svg" alt="">
+              <span><strong>Title</strong></span>
+            </a>
+            <a class="news-sidebar-item" href="impact-news.html">
+              <img src="assets/images/No-Image-Placeholder.svg" alt="">
+              <span><strong>Title</strong></span>
+            </a>
+            <a class="news-sidebar-item" href="impact-news.html">
+              <img src="assets/images/No-Image-Placeholder.svg" alt="">
+              <span><strong>Title</strong></span>
+            </a>
+          </div>
+          <a class="news-sidebar-all" href="berita.html">Lihat semua berita <span aria-hidden="true">→</span></a>
+        </aside>
       </div>
     </article>
   </main>

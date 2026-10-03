@@ -843,6 +843,23 @@
   color: rgba(255, 253, 248, 0.67);
 }
 
+.application-help {
+  margin: 10px 0 0;
+  color: rgba(255, 253, 248, 0.67);
+  font-size: 0.8rem;
+}
+
+.application-help a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.application-help a:hover,
+.application-help a:focus-visible {
+  color: var(--bloom);
+}
+
 @media (max-width: 640px) {
   .application-page {
     padding: 18px 10px 48px;
@@ -1466,6 +1483,8 @@ b.description {
   --ink: #111611;
   --muted: #5f695e;
   --bloom: #FC867F;
+  --opening-letter-byline: #dce5d7;
+  --opening-letter-copy: #f8f4e8;
   --line: rgba(36, 63, 39, 0.18);
   --max: 1180px;
   --nav-height: 76px;
@@ -3635,6 +3654,17 @@ p {
     border-bottom: 1px solid var(--line);
   }
 
+  /* Match the registration page's prominent mobile navigation CTA. */
+  .nav-join {
+    padding-top: 20px;
+  }
+
+  .nav-join-button {
+    width: 100%;
+    min-height: 50px;
+    font-size: 1rem;
+  }
+
   .dropdown-menu {
     position: static;
     min-width: 0;
@@ -3714,6 +3744,32 @@ p {
 
   .article-row {
     grid-template-columns: 1fr;
+  }
+}
+
+/* The home footer has a desktop-specific grid with higher selector specificity
+   than the shared responsive rule above. Reset it here so it cannot overflow
+   narrow viewports and create a horizontal blank area. */
+@media (max-width: 960px) {
+  .home-page .footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 48px 18px 24px;
+  }
+
+  .footer-grid,
+  .home-page .footer-grid {
+    min-width: 0;
+    gap: 28px;
+  }
+
+  .footer-links {
+    margin-top: 12px;
   }
 }
 
@@ -4002,4 +4058,338 @@ p {
   color: var(--white);
   text-indent: 0;
   text-align: center;
+}
+
+/* Homepage redesign: scoped to index.html via .home-redesign. */
+.home-page.home-redesign main > section:nth-of-type(2),
+.home-page.home-redesign main > section:nth-of-type(4) {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(82px, 10vw, 142px);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) { background: var(--cream); }
+.home-page.home-redesign main > section:nth-of-type(4) { background: var(--white); }
+
+.home-page.home-redesign main > section:nth-of-type(2) .section-heading,
+.home-page.home-redesign main > section:nth-of-type(4) .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 52px;
+  padding-bottom: 26px;
+  border-bottom: 2px solid var(--forest);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .section-heading h2,
+.home-page.home-redesign main > section:nth-of-type(4) .section-heading h2 {
+  max-width: none;
+  margin: 0;
+  color: var(--forest);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(2.5rem, 5.2vw, 5.4rem);
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .section-heading .lead {
+  max-width: 650px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .section-heading .button,
+.home-page.home-redesign main > section:nth-of-type(4) .section-heading .button {
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 1px solid var(--forest);
+  border-radius: 0;
+  background: var(--forest);
+  box-shadow: none;
+  color: var(--white);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .section-heading .button:hover,
+.home-page.home-redesign main > section:nth-of-type(2) .section-heading .button:focus,
+.home-page.home-redesign main > section:nth-of-type(4) .section-heading .button:hover,
+.home-page.home-redesign main > section:nth-of-type(4) .section-heading .button:focus {
+  background: transparent;
+  color: var(--forest);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .home-hover-cards,
+.home-page.home-redesign main > section:nth-of-type(4) .home-hover-cards {
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .feature-card,
+.home-page.home-redesign main > section:nth-of-type(4) .feature-card {
+  min-height: 455px;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--forest);
+  box-shadow: 9px 9px 0 rgba(94, 128, 77, .18);
+  transform: none;
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .feature-card img,
+.home-page.home-redesign main > section:nth-of-type(4) .feature-card img {
+  filter: saturate(.82) contrast(1.04);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .feature-card::after,
+.home-page.home-redesign main > section:nth-of-type(4) .feature-card::after {
+  background: linear-gradient(180deg, rgba(17, 22, 17, .04) 28%, rgba(17, 22, 17, .82) 100%);
+  opacity: .72;
+  transition: opacity 220ms var(--ease);
+}
+
+.home-page.home-redesign main > section:nth-of-type(2) .feature-card:hover::after,
+.home-page.home-redesign main > section:nth-of-type(2) .feature-card:focus-within::after,
+.home-page.home-redesign main > section:nth-of-type(4) .feature-card:hover::after,
+.home-page.home-redesign main > section:nth-of-type(4) .feature-card:focus-within::after { opacity: 1; }
+
+.home-page.home-redesign main > section:nth-of-type(2) .card-body,
+.home-page.home-redesign main > section:nth-of-type(4) .card-body { padding: 28px; }
+
+/* Editorial opening letter. */
+.home-page.home-redesign .opening-letter {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(88px, 11vw, 150px);
+  background: var(--forest-soft);
+}
+
+.home-page.home-redesign .opening-letter::before {
+  position: absolute;
+  top: 42px;
+  right: -20px;
+  color: rgba(214, 236, 147, .1);
+  content: "ECOBLOOM";
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(4rem, 11vw, 11rem);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.home-page.home-redesign .opening-letter .split {
+  display: block;
+}
+
+.home-page.home-redesign .opening-letter .split-image {
+  position: relative;
+  top: auto;
+  float: left;
+  width: min(40%, 390px);
+  max-width: none;
+  aspect-ratio: 4 / 5;
+  margin: 0 clamp(24px, 4vw, 56px) 20px 0;
+  border: 10px solid var(--cream);
+  box-shadow: none;
+}
+
+.home-page.home-redesign .opening-letter .split-image::after {
+  position: absolute;
+  right: -2px;
+  bottom: 18px;
+  padding: 8px 12px;
+  background: var(--lime);
+  color: var(--forest);
+  content: "PESAN DARI CO-FOUNDER KAMI";
+  font-family: "DM Mono", monospace;
+  font-size: .61rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.home-page.home-redesign .opening-letter .split-copy {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.home-page.home-redesign .opening-letter .container::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.home-page.home-redesign .opening-letter .split-copy .letter-title {
+  margin: 0;
+  color: var(--lime);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(3rem, 6vw, 6.2rem);
+  line-height: .96;
+  letter-spacing: -.06em;
+}
+
+.home-page.home-redesign .opening-letter .split-copy .letter-by {
+  margin: 22px 0 46px;
+  color: var(--opening-letter-byline);
+  font-family: "DM Mono", monospace;
+  font-size: .73rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  text-decoration: none;
+}
+
+.home-page.home-redesign .opening-letter .split-copy .letter-text {
+  margin: 0 0 24px;
+  color: var(--opening-letter-copy);
+  font-size: 1.03rem;
+  line-height: 1.84;
+  text-align: left;
+  text-indent: 0;
+}
+
+.home-page.home-redesign .opening-letter .split-copy .letter-text:first-of-type::first-letter {
+  float: left;
+  margin: .04em .13em 0 0;
+  color: var(--lime);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 4.8em;
+  font-weight: 700;
+  line-height: .75;
+}
+
+.home-page.home-redesign .opening-letter .split-copy .letter-quote {
+  width: auto;
+  margin: 46px 0 0;
+  padding: 27px 0 0;
+  border-top: 1px solid rgba(214, 236, 147, .6);
+  color: var(--white);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.6;
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .home-page.home-redesign main > section:nth-of-type(2) .section-heading,
+  .home-page.home-redesign main > section:nth-of-type(4) .section-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .home-page.home-redesign .opening-letter .split-image {
+    width: min(44%, 320px);
+    margin-right: clamp(20px, 4vw, 36px);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page.home-redesign .opening-letter .split-image {
+    float: none;
+    width: 100%;
+    margin: 0 0 28px;
+  }
+}
+
+/* Related-news rail for individual news articles. */
+.news-article-page .news-article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 310px);
+  gap: clamp(40px, 7vw, 104px);
+  align-items: start;
+}
+
+.news-article-page .initiative-article {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.news-article-sidebar {
+  position: sticky;
+  top: calc(var(--nav-height) + 28px);
+  width: auto;
+  padding-top: 8px;
+}
+
+.news-article-sidebar-heading {
+  margin-bottom: 0;
+  padding: 0 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.news-article-sidebar-heading h2 {
+  margin: 0;
+  color: var(--forest);
+  font-family: Inter, Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.news-sidebar-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.news-sidebar-item {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 15px;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--forest);
+}
+
+.news-sidebar-item img {
+  width: 92px;
+  height: 68px;
+  object-fit: cover;
+  background: var(--sage);
+  transition: transform 180ms var(--ease);
+}
+
+.news-sidebar-item:hover img,
+.news-sidebar-item:focus img { transform: scale(1.04); }
+
+.news-sidebar-item span { display: grid; gap: 4px; }
+
+.news-sidebar-item small {
+  color: var(--leaf);
+  font-family: "DM Mono", monospace;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.news-sidebar-item strong {
+  color: var(--forest);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: .94rem;
+  line-height: 1.42;
+}
+
+.news-sidebar-all {
+  display: inline-flex;
+  gap: 9px;
+  margin-top: 20px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--forest);
+  color: var(--forest);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.news-sidebar-all:hover,
+.news-sidebar-all:focus { color: var(--leaf); }
+
+@media (max-width: 960px) {
+  .news-article-page .news-article-layout { grid-template-columns: 1fr; }
+  .news-article-sidebar {
+    position: static;
+    max-width: 720px;
+    margin: 22px 0 0;
+    padding-top: 22px;
+  }
 }
